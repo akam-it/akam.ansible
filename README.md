@@ -5,5 +5,5 @@ My ansible roles and playbook
 cd
 sudo apt-get install git ansible
 git clone https://github.com/akam-it/ansible.git
-sudo ansible-playbook akam.desktop.yml
+ansible-playbook akam.desktop.yml -K
 ```

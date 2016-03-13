@@ -2,9 +2,11 @@
 # Install ruby packages
 
 - name: Update cache
+  become: yes
   apt: update_cache=yes cache_valid_time=3600
 
 - name: Install required packages (console based)
+  become: yes
   apt: name={{ item }} state=latest
   with_items:
     - ruby

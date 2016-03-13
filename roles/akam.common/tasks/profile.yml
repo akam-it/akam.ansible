@@ -2,6 +2,7 @@
 # Confuguration and profile management
 
 - name: Set sudo password timestamp for 4 hours
+  become: yes
   lineinfile: dest=/etc/sudoers state=present regexp='^Defaults timestamp_timeout=' line='Defaults timestamp_timeout=240'
 
 - stat: path=/home/akam/.ssh/config
