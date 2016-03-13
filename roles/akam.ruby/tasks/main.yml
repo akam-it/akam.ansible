@@ -1,10 +1,11 @@
 ---
-# Install desktop packages
+# Install ruby packages
 
 - name: Update cache
   apt: update_cache=yes cache_valid_time=3600
 
-- name: Install desktop packages
+- name: Install required packages (console based)
   apt: name={{ item }} state=latest
   with_items:
-    - virtualbox
+    - ruby
+    - rails

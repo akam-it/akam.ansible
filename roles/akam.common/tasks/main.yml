@@ -23,3 +23,5 @@
     - pwgen
     - lm-sensors
     - dmraid
+    - smartmontools
+    - smart-notifier
