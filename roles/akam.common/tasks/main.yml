@@ -1,0 +1,25 @@
+---
+# Install common packages (console based)
+
+- name: Update cache
+  apt: update_cache=yes cache_valid_time=3600
+
+- name: Upgrade installed packages
+  apt: upgrade=dist
+
+- name: Install required packages (console based)
+  apt: name={{ item }} state=latest
+  with_items:
+    - mc
+    - htop
+    - iftop
+    - tcpdump
+    - wget
+    - vim
+    - screen
+    - tmux
+    - curl
+    - git
+    - pwgen
+    - lm-sensors
+    - dmraid

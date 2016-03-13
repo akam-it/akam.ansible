@@ -1,0 +1,19 @@
+---
+# Install desktop packages
+
+- name: Add google-chrome repo
+  apt_repository: repo='deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main' state=present
+
+- name: Add google-chrome repo key
+  apt_key: url=https://dl-ssl.google.com/linux/linux_signing_key.pub state=present
+
+- name: Update cache
+  apt: update_cache=yes cache_valid_time=3600
+
+- name: Install desktop packages
+  apt: name={{ item }} state=latest
+  with_items:
+    - wine
+    - google-chrome-stable
+    - owncloud-client
+    - nvidia-361

@@ -1,0 +1,12 @@
+---
+# Usage: sudo ansible-playbook akam.desktop.yml
+- hosts: localhost
+  user: akam
+  become: yes
+
+  roles:
+    - akam.common
+    - akam.desktop
+    - akam.virtualbox
+    - akam.genymotion
+
