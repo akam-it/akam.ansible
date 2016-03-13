@@ -1,0 +1,16 @@
+- name: Install vim packages
+  apt: name={{ item }} state=latest
+  with_items:
+    - vim
+
+- name: Make sure bundle directory exists
+  file: path="/home/akam/.vim/bundle" state=directory owner=akam group=akam
+
+- name: Checkout vundle repo
+  git: repo=https://github.com/gmarik/vundle.vim.git dest="/home/akam/.vim/bundle/Vundle.vim"
+
+- name: Deploy vimrc config
+  copy: src=.vimrc dest=/home/akam/.vimrc owner=akam group=akam mode=0644
+
+- name: Run bundle install
+  command: vim +BundleInstall +qall
