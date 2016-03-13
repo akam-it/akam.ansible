@@ -1,0 +1,12 @@
+---
+# Confuguration and profile management
+
+- name: Set sudo password timestamp for 4 hours
+  lineinfile: dest=/etc/sudoers state=present regexp='^Defaults timestamp_timeout=' line='Defaults timestamp_timeout=240'
+
+- stat: path=/home/akam/.ssh/config
+  register: ssh_config
+
+- name: Provide ssh config
+  copy: src=ssh_config dest=/home/akam/.ssh/config owner=akam group=akam mode=0660
+  when: ssh_config.stat.exists == False  

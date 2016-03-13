@@ -1,12 +1,18 @@
 ---
 # Download and install genymotion
 
+- stat: path=/opt/genymotion
+  register: genymotion
+
 - name: Download genymotion
   get_url: url=http://files2.genymotion.com/genymotion/genymotion-2.6.0/genymotion-2.6.0-ubuntu15_x64.bin dest=/tmp/genymotion.bin mode=0755
+  when: genymotion.stat.exists == False
 
 - name: Install genymotion
   become: yes
   shell: yes|/tmp/genymotion.bin -d /opt
+  when: genymotion.stat.exists == False
 
 - name: Remove temporary genymotion file
   file: path=/tmp/genymotion.bin state=absent
+  when: genymotion.stat.exists == False

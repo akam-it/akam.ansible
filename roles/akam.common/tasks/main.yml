@@ -25,3 +25,5 @@
     - dmraid
     - smartmontools
     - smart-notifier
+
+- include: profile.yml

@@ -7,6 +7,6 @@
   roles:
     - akam.common
     - akam.desktop
-    - akam.virtualbox
     - akam.genymotion
     - akam.ruby
+    - akam.aptana
