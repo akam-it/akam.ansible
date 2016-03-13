@@ -14,6 +14,7 @@
   apt: name={{ item }} state=latest
   with_items:
     - mc
+    - unrar  
     - htop
     - iftop
     - tcpdump
@@ -24,7 +25,7 @@
     - git
     - pwgen
     - lm-sensors
-    - dmraid
+    - mdadm
     - smartmontools
     - smart-notifier
 

@@ -36,3 +36,23 @@
     - skype
     - virtualbox
     - oracle-java8-installer
+    - keepassx
+    - numix-gtk-theme
+
+- name: Add applications to autostart
+  file: src=/usr/share/applications/{{ item }} dest=/home/akam/.config/autostart/{{ item }} state=link
+  with_items:
+    - owncloud.desktop
+
+- name: Remove packages
+  become: yes
+  apt: name={{ item }} state=absent
+  with_items:
+    - evolution
+
+- name: Configure gnome desktop
+  shell: "{{ item }}"
+  with_items:
+    - "dconf write /org/gtk/settings/file-chooser/sort-directories-first true"
+    - "dconf write /org/gnome/desktop/interface/clock-show-date true"
+    - "dconf write /org/gnome/desktop/wm/preferences/button-layout \"':minimize,maximize,close'\""
