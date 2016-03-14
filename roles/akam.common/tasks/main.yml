@@ -28,5 +28,6 @@
     - mdadm
     - smartmontools
     - smart-notifier
+    - keychain
 
 - include: profile.yml
