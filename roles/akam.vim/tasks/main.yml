@@ -15,8 +15,6 @@
 
 - name: Deploy vimrc config
   copy: src=.vimrc dest=/home/akam/.vimrc owner=akam group=akam mode=0644
-  when: vundle.stat.exists == False
 
 - name: Run bundle install
-  command: vim +BundleInstall +qall
-  when: vundle.stat.exists == False
+  shell: vim +BundleInstall +qall

@@ -40,7 +40,7 @@
     - numix-gtk-theme
     - gnome-shell-extension-weather
     - gnome-shell-extensions-gpaste
-
+    - ffmpeg
 - name: Add applications to autostart
   file: src=/usr/share/applications/{{ item }} dest=/home/akam/.config/autostart/{{ item }} state=link
   with_items:
@@ -48,7 +48,7 @@
 
 - name: Remove packages
   become: yes
-  apt: name={{ item }} state=absent
+  apt: name={{ item }} state=absent# autoremove=yes
   with_items:
     - evolution
 

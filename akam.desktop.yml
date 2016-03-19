@@ -4,9 +4,9 @@
   user: akam
 
   roles:
-    - akam.common
-    - akam.desktop
-    - akam.genymotion
-    - akam.ruby
-    - akam.aptana
+    #    - akam.common
+    #- akam.desktop
+    #- akam.genymotion
+    #- akam.ruby
+    #- akam.aptana
     - akam.vim
