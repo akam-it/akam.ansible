@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Encoding=UTF-8
+Name=Serviio console
+Exec=/opt/serviio/bin/serviio-console.sh
+Icon=/opt/Aptana_Studio_3/icon.xpm
+Terminal=false
+Type=Application
+MimeType=text/xml;application/xhtml+xml;application/x-javascript;application/x-php;application/x-java;text/x-javascript;text/html;text/plain
+

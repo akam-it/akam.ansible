@@ -1,0 +1,13 @@
+[Unit]
+Description=Start the serviio DLNA server in headless mode
+After=local-fs.target network.target
+
+[Service]
+Type=simple
+User=root
+ExecStart=/opt/serviio/bin/serviio.sh
+ExecStop=/opt/serviio/bin/serviio.sh -stop
+Restart=on-abort
+
+[Install]
+WantedBy=multi-user.target

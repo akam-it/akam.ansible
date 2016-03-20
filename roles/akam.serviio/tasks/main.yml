@@ -1,0 +1,32 @@
+---
+# Download and install serviio
+
+- stat: path=/opt/serviio
+  register: serviio
+
+- name: Download serviio
+  get_url: url=http://download.serviio.org/releases/serviio-1.6-linux.tar.gz dest=/tmp/serviio.tar.gz mode=0755
+  when: serviio.stat.exists == False
+
+- name: Extract serviio
+  become: yes
+  shell: tar xf /tmp/serviio.tar.gz -d /opt
+  when: serviio.stat.exists == False
+
+- name: Create symlink
+  become: yes
+  file: src=/opt/serviio-1.6 dest=/opt/serviio state=link
+
+- name: Create launcher for console
+  become: yes
+  copy: src=serviio-console.desktop dest=/usr/share/applications owner=root group=root mode=0644
+  when: serviio.stat.exists == False
+
+- name: Create systemd unit
+  become: yes
+  copy: src=serviio.service dest=/lib/systemd/system owner=root group=root mode=0644
+  when: serviio.stat.exists == False
+
+- name: Remove temporary file
+  file: path=/tmp/serviio.tar.gz state=absent
+  when: serviio.stat.exists == False
