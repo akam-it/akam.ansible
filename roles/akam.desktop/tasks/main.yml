@@ -41,6 +41,7 @@
     - gnome-shell-extension-weather
     - gnome-shell-extensions-gpaste
     - ffmpeg
+    - sublime
 - name: Add applications to autostart
   file: src=/usr/share/applications/{{ item }} dest=/home/akam/.config/autostart/{{ item }} state=link
   with_items:
