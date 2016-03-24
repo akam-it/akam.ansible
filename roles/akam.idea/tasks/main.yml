@@ -1,0 +1,21 @@
+---
+# Download and install aptana
+
+- stat: path=/opt/idea
+  register: idea
+
+- name: Download idea
+  get_url: url=https://download.jetbrains.com/idea/ideaIU-2016.1.tar.gz dest=/tmp/idea.tar.gz mode=0555
+  when: idea.stat.exists == False
+
+- name: Create directory
+  become: yes
+  file: path=/opt/idea state=directory mode=0755
+
+- name: Extract idea
+  become: yes
+  shell: tar xf /tmp/idea.tar.gz -C /opt/idea --strip-components=1
+  when: idea.stat.exists == False
+
+- name: Remove temporary file
+  file: path=/tmp/idea.tar.gz state=absent

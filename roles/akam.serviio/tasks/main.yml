@@ -10,7 +10,7 @@
 
 - name: Extract serviio
   become: yes
-  shell: tar xf /tmp/serviio.tar.gz -d /opt
+  shell: tar xf /tmp/serviio.tar.gz -C /opt
   when: serviio.stat.exists == False
 
 - name: Create symlink
