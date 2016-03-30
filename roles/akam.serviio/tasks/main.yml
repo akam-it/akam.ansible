@@ -30,3 +30,7 @@
 - name: Remove temporary file
   file: path=/tmp/serviio.tar.gz state=absent
   when: serviio.stat.exists == False
+
+- name: Enable serviio service
+  service: name=serviio state=enabled
+

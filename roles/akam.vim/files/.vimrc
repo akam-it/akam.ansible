@@ -21,6 +21,8 @@ Plugin 'klen/python-mode'         " Python mode (docs, refactor, lints, highligh
 Plugin 'davidhalter/jedi-vim'     " Jedi-vim autocomplete plugin
 Plugin 'mitsuhiko/vim-jinja'    " Jinja support for vim
 Plugin 'mitsuhiko/vim-python-combined'  " Combined Python 2/3 for Vim
+Plugin 'scrooloose/nerdtree'
+
 
 
 set expandtab
