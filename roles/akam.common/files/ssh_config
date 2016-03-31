@@ -2,6 +2,7 @@ Host *
   ForwardAgent yes
   PubkeyAcceptedKeyTypes=+ssh-dss
   KexAlgorithms=+diffie-hellman-group1-sha1
+  RemoteForward 52698 127.0.0.1:52698
 
 Host mah.org
   Port 3000
@@ -10,4 +11,3 @@ Host *.mah.org 192.168.*
   HostName %h
   User root
   ProxyCommand ssh akam@mah.org nc %h %p
-
