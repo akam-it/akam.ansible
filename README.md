@@ -1,6 +1,6 @@
 # ansible
 My ansible roles and playbook
-# Usage:
+# Usage: (as non-root user)
 ```bash
 cd
 sudo apt-get install git ansible

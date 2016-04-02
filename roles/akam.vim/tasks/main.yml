@@ -5,17 +5,17 @@
     - vim
 
 - name: Make sure bundle directory exists
-  file: path="/home/akam/.vim/bundle" state=directory owner=akam group=akam
+  file: path="~/.vim/bundle" state=directory
 
-- stat: path=/home/akam/.vim/bundle/Vundle.vim
+- stat: path=~/.vim/bundle/Vundle.vim
   register: vundle
 
 - name: Checkout vundle repo
-  git: repo=https://github.com/gmarik/vundle.vim.git dest="/home/akam/.vim/bundle/Vundle.vim"
+  git: repo=https://github.com/gmarik/vundle.vim.git dest="~/.vim/bundle/Vundle.vim"
   when: vundle.stat.exists == False
 
 - name: Deploy vimrc config
-  copy: src=.vimrc dest=/home/akam/.vimrc owner=akam group=akam mode=0644
+  copy: src=.vimrc dest=~/.vimrc mode=0644
 
 - name: Run bundle install
   shell: vim +BundleInstall +qall

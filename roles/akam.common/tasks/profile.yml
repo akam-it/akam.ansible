@@ -5,15 +5,15 @@
   become: yes
   lineinfile: dest=/etc/sudoers state=present regexp='^Defaults timestamp_timeout=' line='Defaults timestamp_timeout=240\n'
 
-- stat: path=/home/akam/.ssh/config
+- stat: path=~/.ssh/config
   register: ssh_config
 
 - name: Provide ssh config
-  copy: src=ssh_config dest=/home/akam/.ssh/config owner=akam group=akam mode=0660
+  copy: src=ssh_config dest=~/.ssh/config mode=0660
   when: ssh_config.stat.exists == False  
 
 - name: Set up .bashrc
-  lineinfile: dest=/home/akam/.bashrc state=present regexp={{ item.regexp }} line={{ item.line }}
+  lineinfile: dest=~/.bashrc state=present regexp={{ item.regexp }} line={{ item.line }}
   with_items:
     - { regexp: '^alias ssh-copy-id=.*', line: "alias ssh-copy-id='ssh-copy-id -i ~/.ssh/id_ed25519'" }
     - { regexp: '^eval \$\(keychain.*', line: 'eval $(keychain --eval --agents ssh -Q --quiet id_rsa id_dsa id_ed25519)' }

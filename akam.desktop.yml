@@ -1,7 +1,6 @@
 ---
-# Usage: sudo ansible-playbook akam.desktop.yml
+# Usage: ansible-playbook akam.desktop.yml -K
 - hosts: localhost
-  user: akam
 
   roles:
     - akam.common

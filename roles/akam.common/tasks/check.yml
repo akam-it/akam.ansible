@@ -1,0 +1,10 @@
+---
+# 
+
+- name: Get userid
+  local_action: command id -u
+  register: userid
+
+- name: Check if local user is root
+  fail: msg="You must not run it as root"
+  when: userid.stdout == '0'

@@ -49,12 +49,13 @@
     - sublime-text-installer
 
 - name: Create autostart folder
-  file: path=/home/akam/.config/autostart state=directory
+  file: path=~/.config/autostart state=directory
 
 - name: Add applications to autostart
-  file: src=/usr/share/applications/{{ item }} dest=/home/akam/.config/autostart/{{ item }} force=yes state=link
+  file: src=/usr/share/applications/{{ item }} dest=~/.config/autostart/{{ item }} force=yes state=link
   with_items:
     - owncloud.desktop
+    - skype.desktop
 
 - name: Remove packages
   become: yes

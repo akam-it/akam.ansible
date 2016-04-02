@@ -21,4 +21,5 @@
   file: path=/tmp/idea.tar.gz state=absent
 
 - name: Launch idea first time
-  shell: /opt/idea/bin/idea.sh
+  shell: /opt/idea/bin/idea.sh &
+  when: idea.stat.exists == False
