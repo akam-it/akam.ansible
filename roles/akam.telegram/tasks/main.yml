@@ -1,0 +1,26 @@
+---
+# Download and install telegram
+
+- stat: path=/opt/telegram
+  register: telegram
+
+- name: Download telegram
+  get_url: url=https://tdesktop.com/linux dest=/tmp/telegram.tar.xz
+  when: telegram.stat.exists == False
+
+- name: Create directory
+  become: yes
+  file: path=/opt/telegram state=directory mode=0755
+
+- name: Extract telegram
+  become: yes
+  shell: tar xf /tmp/telegram.tar.xz -C /opt/telegram --strip-components=1
+  when: telegram.stat.exists == False
+
+- name: Create launcher
+  become: yes
+  copy: src=telegram.desktop dest=/usr/share/applications owner=root group=root mode=0644
+  when: telegram.stat.exists == False
+
+- name: Remove temporary file
+  file: path=/tmp/telegram.tar.xz state=absent
