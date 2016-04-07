@@ -16,4 +16,5 @@
   lineinfile: dest=~/.bashrc state=present regexp={{ item.regexp }} line={{ item.line }}
   with_items:
     - { regexp: '^alias ssh-copy-id=.*', line: "alias ssh-copy-id='ssh-copy-id -i ~/.ssh/id_ed25519'" }
+    - { regexp: '^alias sublime=.*', line: "alias sublime='/opt/sublime_text/sublime_text'" }
     - { regexp: '^eval \$\(keychain.*', line: 'eval $(keychain --eval --agents ssh -Q --quiet id_rsa id_dsa id_ed25519)' }

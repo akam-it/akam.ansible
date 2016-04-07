@@ -36,8 +36,8 @@
   with_items:
     - wine
     - google-chrome-stable
-    - owncloud-client
-    - nvidia-361
+    #- owncloud-client
+    #- nvidia-361
     - skype
     - virtualbox
     - oracle-java8-installer

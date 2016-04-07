@@ -11,3 +11,8 @@ Host *.mah.org 192.168.*
   HostName %h
   User root
   ProxyCommand ssh akam@mah.org nc %h %p
+
+Host *.nch.ru
+  HostName %h
+  User root
+  ProxyCommand ssh akam@nch.ru nc %h %p
