@@ -1,0 +1,22 @@
+---
+# Install sublime
+
+- name: Add sublime repository
+  become: yes
+  apt_repository: repo='ppa:webupd8team/sublime-text-3' state=present
+
+- name: Install sublime
+  become: yes
+  apt: name={{ item }} state=latest force=yes
+  with_items:
+    - sublime-text-installer
+
+- name: Create packages folder
+  file: path='~/.config/sublime-text-3/Installed Packages' state=directory
+
+- name: Download Package Control plugin
+  get_url: url='https://packagecontrol.io/Package Control.sublime-package' dest='~/.config/sublime-text-3/Installed Packages'
+
+# Get plugins
+#- name: Get plugins
+#  git: repo=https://github.com/sergeche/emmet-sublime.git dest='~/.config/sublime-text-3/Installed Packages/emmet'
