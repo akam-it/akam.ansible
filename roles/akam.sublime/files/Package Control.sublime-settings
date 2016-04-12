@@ -1,0 +1,25 @@
+{
+	"bootstrapped": true,
+	"in_process_packages":
+	[
+	],
+	"installed_packages":
+	[
+		"All Autocomplete",
+		"AutoFileName",
+		"BracketHighlighter",
+		"Colorcoder",
+		"ColorPicker",
+		"DocBlockr",
+		"Emmet",
+		"Git",
+		"GitGutter",
+		"MarkdownEditing",
+		"Package Control",
+		"PlainTasks",
+		"rsub",
+		"SideBarEnhancements",
+		"SublimeCodeIntel",
+		"SublimeREPL",
+	]
+}

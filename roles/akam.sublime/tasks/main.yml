@@ -12,11 +12,13 @@
     - sublime-text-installer
 
 - name: Create packages folder
-  file: path='~/.config/sublime-text-3/Installed Packages' state=directory
+  file: path={{ item }} state=directory
+  with_items:
+    - '~/.config/sublime-text-3/Installed Packages'
+    - '~/.config/sublime-text-3/Packages/User'
 
 - name: Download Package Control plugin
   get_url: url='https://packagecontrol.io/Package Control.sublime-package' dest='~/.config/sublime-text-3/Installed Packages'
 
-# Get plugins
-#- name: Get plugins
-#  git: repo=https://github.com/sergeche/emmet-sublime.git dest='~/.config/sublime-text-3/Installed Packages/emmet'
+- name: Copy Package Pontrol settings (with plugins to install)
+  copy: src='Package Control.sublime-settings' dest='~/.config/sublime-text-3/Packages/User'
