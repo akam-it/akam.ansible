@@ -31,7 +31,6 @@
   with_items:
     - wine
     - google-chrome-stable
-    #- owncloud-client
     #- nvidia-361
     - skype
     - virtualbox
@@ -48,7 +47,6 @@
 - name: Add applications to autostart
   file: src=/usr/share/applications/{{ item }} dest=~/.config/autostart/{{ item }} force=yes state=link
   with_items:
-    - owncloud.desktop
     - skype.desktop
 
 - name: Remove packages
