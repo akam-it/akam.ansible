@@ -22,3 +22,6 @@
 
 - name: Copy Package Pontrol settings (with plugins to install)
   copy: src='Package Control.sublime-settings' dest='~/.config/sublime-text-3/Packages/User'
+
+- name: Set default editor
+- replace: dest=~/.selected_editor regexp='SELECTED_EDITOR=.*' replace='SELECTED_EDITOR=\"/opt/sublime_text/sublime_text\"'
