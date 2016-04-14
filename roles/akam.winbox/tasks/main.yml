@@ -1,0 +1,23 @@
+---
+# Download and install aptana
+
+- stat: path=/opt/Aptana_Studio_3
+  register: aptana
+
+- name: Download aptana
+  get_url: url=https://github.com/aptana/studio3/releases/download/v3.6.1/Aptana_Studio_3_Setup_Linux_x86_64_3.6.1.zip dest=/tmp/aptana.zip mode=0555
+  when: aptana.stat.exists == False
+
+- name: Unzip aptana
+  become: yes
+  shell: unzip /tmp/aptana.zip -d /opt
+  when: aptana.stat.exists == False
+
+- name: Create launcher
+  become: yes
+  copy: src=aptana.desktop dest=/usr/share/applications owner=root group=root mode=0644
+  when: aptana.stat.exists == False
+
+- name: Remove temporary file
+  file: path=/tmp/aptana.zip state=absent
+  when: aptana.stat.exists == False

@@ -3,11 +3,11 @@
 - hosts: localhost
 
   roles:
-    - akam.common
-    - akam.desktop
-    - akam.genymotion
-    - akam.ruby
-    - akam.vim
-    - akam.idea
-    - akam.telegram
-    - akam.sublime
+    # - akam.common
+    # - akam.desktop
+    # - akam.genymotion
+    # - akam.ruby
+    # - akam.vim
+    # - akam.idea
+    # - akam.telegram
+     - akam.sublime
