@@ -3,11 +3,11 @@
 - hosts: localhost
 
   roles:
-    # - akam.common
-    # - akam.desktop
-    # - akam.genymotion
-    # - akam.ruby
-    # - akam.vim
-    # - akam.idea
-    # - akam.telegram
-     - akam.sublime
+    - { role: akam.common, tags: common }
+    - { role: akam.desktop, tags: desktop }
+    - { role: akam.genymotion, tags: genymotion }
+    - { role: akam.ruby, tags: ruby }
+    - { role: akam.vim, tags: vim }
+    - { role: akam.idea, tags: idea }
+    - { role: akam.telegram, tags: telegram }
+    - { role: akam.sublime, tags: sublime }
