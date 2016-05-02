@@ -1,0 +1,7 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=Telegram
+Exec=/opt/telegram/Telegram
+Terminal=false
+Type=Application
+

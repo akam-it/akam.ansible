@@ -5,7 +5,7 @@
   register: serviio
 
 - name: Download serviio
-  get_url: url=http://download.serviio.org/releases/serviio-1.6-linux.tar.gz dest=/tmp/serviio.tar.gz mode=0755
+  get_url: url=http://download.serviio.org/releases/serviio-1.6.1-linux.tar.gz dest=/tmp/serviio.tar.gz mode=0755
   when: serviio.stat.exists == False
 
 - name: Extract serviio
@@ -15,7 +15,7 @@
 
 - name: Create symlink
   become: yes
-  file: src=/opt/serviio-1.6 dest=/opt/serviio state=link
+  file: src=/opt/serviio-1.6.1 dest=/opt/serviio state=link
 
 - name: Create launcher for console
   become: yes
@@ -32,5 +32,4 @@
   when: serviio.stat.exists == False
 
 - name: Enable serviio service
-  service: name=serviio state=enabled
-
+  service: name=serviio enabled=yes

@@ -31,7 +31,7 @@
   with_items:
     - wine
     - google-chrome-stable
-    #- nvidia-361
+    - nvidia-361
     - skype
     - virtualbox
     - oracle-java8-installer

@@ -1,0 +1,20 @@
+---
+# Download and install seafile client
+
+- stat: path=/opt/seafile
+  register: seafile
+
+- name: Download seafile
+  get_url: url=https://bintray.com/artifact/download/seafile-org/seafile/seafile_5.1.0_amd64.deb dest=/tmp/seafile.deb
+  when: seafile.stat.exists == False
+
+- name: Install seafile client
+  apt: deb=/tmp/seafile.deb
+  become: yes
+  when: seafile.stat.exists == False
+
+- name: Remove temporary file
+  file: path=/tmp/seafile.deb state=absent
+
+- name: Create symlink for autostart
+  file: src=/usr/share/applications/seafile.desktop dest=~/.config/autostart/seafile.desktop state=link

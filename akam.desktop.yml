@@ -11,3 +11,5 @@
     - { role: akam.idea, tags: idea }
     - { role: akam.telegram, tags: telegram }
     - { role: akam.sublime, tags: sublime }
+    - { role: akam.seafile, tags: seafile }
+    # - { role: akam.serviio, tags: serviio }
