@@ -19,3 +19,9 @@
     - { regexp: '^alias sublime=.*', line: "alias sublime='/opt/sublime_text/sublime_text'" }
     - { regexp: '^alias reestr=.*', line: "alias reestr=\"ssh root@db 'mysql -ur -p4 reestr -e \"select password,sms_code from login where id_login=1;\"'\"" }
     - { regexp: '^eval \$\(keychain.*', line: 'eval $(keychain --eval --agents ssh -Q --quiet id_rsa id_dsa id_ed25519)' }
+
+- name: Set up git
+  shell: "{{  item }}"
+  with_items:
+    - 'git config --global user.email "aidar.kamalov@gmail.com"'
+    - 'git config --global user.name "Aydar Kamalov"'

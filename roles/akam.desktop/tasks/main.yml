@@ -40,6 +40,7 @@
     - gnome-shell-extension-weather
     - gnome-shell-extensions-gpaste
     - ffmpeg
+    - fbreader
 
 - name: Create autostart folder
   file: path=~/.config/autostart state=directory
